@@ -17,15 +17,7 @@ $posts = new CrudPost();
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
-            <div class="profile clearfix">
-                <div class="profile_pic">
-                    <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-                </div>
-                <div class="profile_info">
-                    <span>Bem Vindo,</span>
-                    <h2>Usuario</h2>
-                </div>
-            </div>
+
             <!-- /menu profile quick info -->
 
             <br />
@@ -78,56 +70,28 @@ $posts = new CrudPost();
         </div>
     </div>
     <!-- /top navigation -->
-
+    <br><br>
     <!-- page content -->
     <div class="right_col" role="main">
-
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="dashboard_graph">
-            <div class="x_title">
-                <h2>Post Recentes!</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <div class="dashboard-widget-content">
-
-                    <ul class="list-unstyled timeline widget">
-                        <?php foreach ($posts->findAll() as $post) :?>
-
-                            <li>
-                            <div class="block">
-                                <div class="block_content">
-                                    <h2 class="title">
-                                        <a><?= $post['title'].' : '.$post['subtitle'] ?></a>
-                                    </h2>
-                                    <div class="byline">
-                                        <span><?= $post['data']?></span></a>
-                                    </div>
-                                    <p class="excerpt"> <?= $post['text']?></p>
-                                </div>
-                            </div>
-                        </li>
-                        <?php endforeach;?>
-                    </ul>
+        <div class="container-fluid" style="background-color: white">
+            <?php foreach ($posts->findAll() as $post) :?>
+                <div class="card text-center" style="background-color: #d5d5d5">
+                    <br>
+                    <div class="card-body" style="color: #0f0f0f">
+                        <h3 class="card-title"><?= $post['title'].' : '.$post['subtitle'] ?></h3>
+                        <hr>
+                        <h2 class="card-text"><?= $post['text']?></h2>
+                    </div>
+                    <hr>
+                    <div class="card-footer text-muted">
+                        <p>Data: <?= $post['data']?></p></a>
+                    </div>
+                    <br><br>
+                    <hr>
                 </div>
-            </div>
+            <?php endforeach;?>
         </div>
     </div>
+</div>
 
 <?php require_once 'template/footer.php';?>
