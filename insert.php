@@ -6,7 +6,6 @@ if (isset($_POST['insertPost']))
     $title = $_POST['title'];
     $subtitle = $_POST['subtitle'];
     $text = $_POST['text'];
-
     $data = date('Y-m-d H:i:s');
 
 
@@ -14,8 +13,6 @@ if (isset($_POST['insertPost']))
     $post->insert($title, $subtitle, $text, $data);
     header('Location: index.php');
 }
-
-
 ?>
 
 <?php require_once 'template/header.php';?>

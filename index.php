@@ -2,8 +2,6 @@
 require_once 'Classes/CrudPost.php';
 
 $posts = new CrudPost();
-
-
 ?>
 <?php require_once 'template/header.php';?>
 
