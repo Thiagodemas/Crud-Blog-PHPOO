@@ -29,4 +29,14 @@ class CrudPost extends Post
 
         return $stmt->execute();
     }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM $this->table WHERE id = :id";
+        $stmt = Conection::prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+
+
+    }
 }
