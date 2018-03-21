@@ -39,4 +39,15 @@ class CrudPost extends Post
 
 
     }
+
+    public function update($id, $title, $subtitle, $text)
+    {
+        $sql = "UPDATE $this->table SET title = :title, subtitle = :subtitle, text = :text WHERE id = :id";
+        $stmt = Conection::prepare($sql);
+        $stmt->bindParam(   ':title', $title);
+        $stmt->bindParam(   ':subtitle', $subtitle);
+        $stmt->bindParam(   ':text', $text);
+        $stmt->bindParam(   ':id', $id);
+        return $stmt->execute();
+    }
 }

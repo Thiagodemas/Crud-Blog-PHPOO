@@ -9,16 +9,14 @@ $stmt->bindParam('id', $id);
 $stmt->execute();
 $update = $stmt->fetch();
 
-if (isset($_POST['insertPost']))
+if (isset($_POST['updatePost']))
 {
     $title = $_POST['title'];
     $subtitle = $_POST['subtitle'];
     $text = $_POST['text'];
-    $data = date('Y-m-d H:i:s');
 
-
-    $post = new CrudPost();
-    $post->insert($title, $subtitle, $text, $data);
+    $updatePost = new CrudPost();
+    $updatePost->update($id, $title, $subtitle, $text);
     header('Location: index.php');
 }
 ?>
@@ -42,7 +40,7 @@ if (isset($_POST['insertPost']))
                 <textarea class="form-control" name="text"  rows="6"><?= $update['text']?></textarea>
             </div>
 
-            <button type="submit" name="updatePost" class="btn btn-primary">Novo Post</button>
+            <button type="submit" name="updatePost" class="btn btn-primary">Editar Post</button>
         </form me>
     </div>
 </div>
